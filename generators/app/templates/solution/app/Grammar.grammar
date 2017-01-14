@@ -1,0 +1,14 @@
+﻿#reference 'file:<%= name %>.<%= semantics %>.dll';
+#reference 'file:<%= name %>.<%= learning %>.dll';
+using <%= name %>;
+using <%= name %>.<%= semantics %>;
+using <%= name %>.<%= learning %>;
+using semantics <%= name %>.<%= semantics %>.<%= semantics %>;
+using learners <%= name %>.<%= learning %>.Witnesses;
+
+language <%= name %>;
+
+@complete feature double <%= scoreFeature %> = <%= scoreHolder %>;
+
+// Your grammar rules here
+
