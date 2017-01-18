@@ -2,7 +2,7 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EFBD1A76-0A93-4CE8-8579-A0E6C078E341}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace><%= name %></RootNamespace>
@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,7 +21,7 @@
     <ExternalConsole>true</ExternalConsole>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -207,9 +207,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="<%= name %>.grammar">
+    <Content Include="<%= name %>.grammar">
+      <Label>GrammarDefinition</Label>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\<%= name %>.<%= semantics %>\<%= name %>.<%= semantics %>.csproj">
@@ -222,4 +223,24 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <% if (buildGrammar) { %>
+  <ItemGroup>
+    <DslAssemblyReference Include="$(SolutionDir)<%= name %>.<%= semantics %>/$(OutputPath)/<%= name %>.<%= semantics %>.dll" >
+      <InProject>false</InProject>
+    </DslAssemblyReference>
+    <DslAssemblyReference Include="$(SolutionDir)<%= name %>.<%= learning %>/$(OutputPath)/<%= name %>.<%= learning %>.dll" >
+      <InProject>false</InProject>
+    </DslAssemblyReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="<%= name %>.Language">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(OutputPath)\<%= name %>.Language.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildGrammar.targets" />
+  </ItemGroup>
+  <Import Project="BuildGrammar.targets" />
+  <% } %>
 </Project>

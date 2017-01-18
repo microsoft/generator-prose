@@ -10,5 +10,6 @@ language <%= name %>;
 
 @complete feature double <%= scoreFeature %> = <%= scoreHolder %>;
 
-// Your grammar rules here
-
+// Your grammar rules here. For example:
+@start string P := x;
+@input string x;

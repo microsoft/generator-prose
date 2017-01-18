@@ -134,6 +134,12 @@ module.exports = Generator.extend({
       this.destinationPath(path.join(this.props.name, learningNamespace, 'packages.config')),
       this.props
     );
+    if (this.props.buildGrammar) {
+      this.fs.copy(
+        this.templatePath('solution/app/BuildGrammar.targets'),
+        this.destinationPath(path.join(this.props.name, this.props.name, 'BuildGrammar.targets'))
+      );
+    }
   },
 
   install: function () {
