@@ -16,6 +16,14 @@ namespace <%= name %>
     {
         public static void Main(string[] args)
         {
+            <% if (buildGrammar) { %>
+            var grammar = Language.Grammar;
+            <% } else { %>
+            var parseResult = DSLCompiler.ParseGrammarFromFile("<%= name %>.grammar");
+            parseResult.TraceDiagnostics();
+            var grammar = parseResult.Value;
+            <% } %>
+            Console.WriteLine(grammar.Name);
         }
     }
 }

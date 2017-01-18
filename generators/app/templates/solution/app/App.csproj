@@ -233,6 +233,9 @@
     </DslAssemblyReference>
   </ItemGroup>
   <ItemGroup>
+    <ReferencePath Include="$(OutputPath)/<%= name %>.Language.dll" >
+      <InProject>false</InProject>
+    </ReferencePath>
     <Reference Include="<%= name %>.Language">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(OutputPath)/<%= name %>.Language.dll</HintPath>
