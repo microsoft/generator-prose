@@ -20,21 +20,28 @@ module.exports = Generator.extend({
       {
         type: 'input',
         name: 'semantics',
-        message: 'The name of the library with operator implementations',
+        message: 'Name of the library that contains operator implementations',
         default: 'Semantics',
         store: true
       },
       {
         type: 'input',
         name: 'learning',
-        message: 'The name of the library with learning helpers',
+        message: 'Name of the library that contains custom learning logic',
         default: 'Learning',
         store: true
       },
       {
         type: 'input',
+        name: 'domainLearningLogic',
+        message: 'The class that contains custom learning logic',
+        default: 'Learners',
+        store: true
+      },
+      {
+        type: 'input',
         name: 'scoreFeature',
-        message: 'The name of the program feature that is used for ranking',
+        message: 'Name of the program feature that is used for ranking',
         default: 'Score',
         store: true
       },
@@ -115,8 +122,8 @@ module.exports = Generator.extend({
       this.props
     );
     this.fs.copyTpl(
-      this.templatePath('solution/learning/Witnesses.cs'),
-      this.destinationPath(path.join(this.props.name, learningNamespace, 'Witnesses.cs')),
+      this.templatePath('solution/learning/Learners.cs'),
+      this.destinationPath(path.join(this.props.name, learningNamespace, this.props.domainLearningLogic + '.cs')),
       this.props
     );
     this.fs.copyTpl(
@@ -140,9 +147,5 @@ module.exports = Generator.extend({
         this.destinationPath(path.join(this.props.name, this.props.name, 'BuildGrammar.targets'))
       );
     }
-  },
-
-  install: function () {
-    //this.installDependencies();
   }
 });

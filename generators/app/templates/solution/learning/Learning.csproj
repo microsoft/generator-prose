@@ -199,7 +199,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Witnesses.cs" />
+    <Compile Include="<%= domainLearningLogic %>.cs" />
     <Compile Include="Properties/AssemblyInfo.cs" />
     <Compile Include="<%= scoreHolder %>.cs" />
   </ItemGroup>

@@ -4,7 +4,7 @@ using <%= name %>;
 using <%= name %>.<%= semantics %>;
 using <%= name %>.<%= learning %>;
 using semantics <%= name %>.<%= semantics %>.<%= semantics %>;
-using learners <%= name %>.<%= learning %>.Witnesses;
+using learners <%= name %>.<%= learning %>.<%= domainLearningLogic %>;
 
 language <%= name %>;
 

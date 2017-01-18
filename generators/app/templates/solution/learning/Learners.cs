@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace <%= name %>.<%= learning %>
 {
-    public class Witnesses : DomainLearningLogic
+    public class <%= domainLearningLogic %> : DomainLearningLogic
     {
-        public Witnesses(Grammar grammar) : base(grammar) {}
+        public <%= domainLearningLogic %>(Grammar grammar) : base(grammar) {}
 
-        // Your witness functions here
+        // Your custom learning logic here (for example, witness functions)
     }
 }
