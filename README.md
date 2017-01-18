@@ -19,5 +19,6 @@ yo prose
 ## License
 
 Generator: MIT © [Microsoft PROSE](https://microsoft.github.io/prose)
+
 PROSE framework: [Free for non-commercial use](https://prose-playground.cloudapp.net/data/SDKLicense.pdf)
 
