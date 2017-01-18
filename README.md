@@ -1,5 +1,5 @@
 # generator-prose
-> Generator for a Microsoft PROSE domain-specific language which is amenable for automatic synthesis.
+> Generator for a Microsoft PROSE domain-specific language, amenable to automatic synthesis.
 
 ## Installation
 
@@ -18,7 +18,7 @@ yo prose
 
 ## License
 
-Generator: MIT © [Microsoft PROSE](https://microsoft.github.io/prose)
+**Generator:** MIT © [Microsoft PROSE](https://microsoft.github.io/prose)
 
-PROSE framework: [Free for non-commercial use](https://prose-playground.cloudapp.net/data/SDKLicense.pdf)
+**PROSE framework:** [Free for non-commercial use](https://prose-playground.cloudapp.net/data/SDKLicense.pdf)
 

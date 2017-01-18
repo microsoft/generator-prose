@@ -1,7 +1,7 @@
 {
   "name": "generator-prose",
   "version": "0.1.0",
-  "description": "Generator for a Microsoft PROSE domain-specific language which is amenable for automatic synthesis.",
+  "description": "Generator for a Microsoft PROSE domain-specific language, amenable to automatic synthesis.",
   "homepage": "https://microsoft.github.io/prose",
   "author": {
     "name": "Microsoft PROSE",
@@ -48,8 +48,7 @@
   },
   "repository": "https://msdata.visualstudio.com/DefaultCollection/_git/PROSE",
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "prepublish": "gulp prepublish"
   },
   "license": "MIT"
 }
