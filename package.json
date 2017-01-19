@@ -1,6 +1,6 @@
 {
   "name": "generator-prose",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "Generator for a Microsoft PROSE domain-specific language, amenable to automatic synthesis.",
   "homepage": "https://microsoft.github.io/prose",
   "author": {
