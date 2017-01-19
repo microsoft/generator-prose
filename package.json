@@ -4,7 +4,7 @@
   "description": "Generator for a Microsoft PROSE domain-specific language, amenable to automatic synthesis.",
   "homepage": "https://microsoft.github.io/prose",
   "author": {
-    "name": "Microsoft PROSE",
+    "name": "Microsoft PROSE Team",
     "email": "prose-contact@microsoft.com",
     "url": "https://microsoft.github.io/prose"
   },
@@ -46,7 +46,7 @@
       "mocha": true
     }
   },
-  "repository": "https://msdata.visualstudio.com/DefaultCollection/_git/PROSE",
+  "repository": "https://github.com/Microsoft/generator-prose",
   "scripts": {
     "prepublish": "gulp prepublish"
   },
