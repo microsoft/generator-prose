@@ -1,6 +1,6 @@
 {
   "name": "generator-prose",
-  "version": "1.0.2",
+  "version": "2.2.0",
   "description": "Generator for a Microsoft PROSE domain-specific language, amenable to automatic synthesis.",
   "homepage": "https://microsoft.github.io/prose",
   "author": {
@@ -24,19 +24,19 @@
   "dependencies": {
     "yeoman-generator": "^1.0.0",
     "chalk": "^1.1.3",
-    "yosay": "^1.2.1"
+    "yosay": "^2.0.0"
   },
   "devDependencies": {
     "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^2.2.1",
+    "yeoman-assert": "^3.0.0",
     "eslint": "^3.1.1",
-    "eslint-config-xo-space": "^0.15.0",
+    "eslint-config-xo-space": "^0.16.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-istanbul": "^1.0.0",
-    "gulp-mocha": "^3.0.1",
+    "gulp-mocha": "^4.3.1",
     "gulp-plumber": "^1.0.0",
     "gulp-nsp": "^2.1.0"
   },

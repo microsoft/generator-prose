@@ -18,12 +18,17 @@ namespace <%= name %>
         {
             <% if (buildGrammar) { %>
             var grammar = Language.Grammar;
+            var nodeBuilders = Language.Build.Node;
             <% } else { %>
             var parseResult = DSLCompiler.ParseGrammarFromFile("<%= name %>.grammar");
             parseResult.TraceDiagnostics();
             var grammar = parseResult.Value;
             <% } %>
             Console.WriteLine(grammar.Name);
+            Console.WriteLine(ProgramNode.Parse("x", grammar, ASTSerializationFormat.HumanReadable));
+            <% if (buildGrammar) { %>
+            Console.WriteLine(nodeBuilders.Variable.x.Node);
+            <% } %>
         }
     }
 }

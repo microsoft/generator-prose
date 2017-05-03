@@ -15,26 +15,25 @@
     </PropertyGroup>
     <ItemGroup>
       <AssemblyPaths Include="@(DslAssemblyReference -> '%(RootDir)%(Directory)')"/>
-    </ItemGroup>
-    <ItemGroup>
       <!-- Fix the double-backslash-in-quoted-strings problem on Windows.
       See http://weblogs.asp.net/jongalloway/_5B002E00_NET-Gotcha_5D00_-Commandline-args-ending-in-_5C002200_-are-subject-to-CommandLineToArgvW-whackiness -->
       <AssemblyPathsFixedSlash Include="@(AssemblyPaths -> Replace('\', '/'))"/>
-    </ItemGroup>
-    <ItemGroup>
-      <OutputGrammar Include="@(GrammarDefinition -> '$(TargetDir)%(Filename).Language.dll')"/>
+      <OutputGrammar Include="@(GrammarDefinition -> '$(IntermediateOutputPath)%(Filename).Language.g.cs')"/>
     </ItemGroup>
   </Target>
-  <Target Name="RecompileGrammar" DependsOnTargets="SetProperties">
+  <Target Name="CompileGrammar" DependsOnTargets="SetProperties"
+          Inputs="$(InputGrammar);@(DslAssemblyReference -> '%(FullPath)');" Outputs="@(OutputGrammar)">
     <Message Importance="High" Text="Recompiling $(InputGrammar) using $(DSLCompiler)..."/>
     <PropertyGroup>
       <DslcCommand>$(DslCompiler) -p &quot;@(AssemblyPathsFixedSlash)&quot; -o &quot;@(OutputGrammar)&quot; -v verbose -- &quot;$(InputGrammar)&quot;</DslcCommand>
     </PropertyGroup>
     <Message Importance="High" Text="$(DslcCommand)"/>
     <Exec Command="$(DslcCommand)"/>
+    <ItemGroup>
+        <Compile Include="@(OutputGrammar)" />
+    </ItemGroup>
   </Target>
-  <Target Name="AfterResolveReferences" DependsOnTargets="SetProperties"
-          Inputs="$(InputGrammar);@(DslAssemblyReference -> '%(FullPath)');" Outputs="@(OutputGrammar)">
-    <CallTarget Targets="RecompileGrammar" />
-  </Target>
+  <PropertyGroup>
+      <CoreCompileDependsOn>CompileGrammar;$(CoreCompileDependsOn)</CoreCompileDependsOn>
+  </PropertyGroup>
 </Project>
