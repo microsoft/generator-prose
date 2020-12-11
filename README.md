@@ -1,3 +1,5 @@
+__This repo is for an old version of PROSE.  Please refer to [the PROSE team site](https://microsoft.github.io/prose) for the current version of PROSE.__
+
 # generator-prose
 > Generator for a Microsoft PROSE domain-specific language, amenable to automatic synthesis.
 
